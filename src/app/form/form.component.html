@@ -1,0 +1,50 @@
+<h3>Reactive Form</h3>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="username">Username: </label>
+    <input type="text" formControlName="username" id="username" required maxlength="40" minlength="6">
+    <span *ngIf="!username?.errors">
+      <input type="checkbox" disabled onclick="return false;" checked>
+    </span>
+    <div *ngIf="username?.invalid && (username?.dirty || username?.touched)">
+      <div *ngIf="username?.hasError('required')">
+        <span>User Name is required</span>
+      </div>
+      <div *ngIf="username?.hasError('minlength')">
+        <span>Min length should be 6</span>
+      </div>
+      <div *ngIf="username?.hasError('maxlength')">
+        <span>Max length should be 40</span>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div>
+    <label for="password">Password: </label>
+    <input type="text" formControlName="password" id="password">
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+<p>{{ myForm.value | json }}</p>
+
+<h3>Template Driven Form</h3>
+
+<div>
+  <label for="firstname">Firstname</label>
+  <input type="text" name="firstname" class="" required minlength="6" maxlength="10"
+         [(ngModel)]="person.firstname" id="firstname" #firstname="ngModel">
+  <div *ngIf="firstname?.invalid && (firstname?.dirty || firstname?.touched)">
+    <div *ngIf="firstname?.errors?.['required']">
+      <span>User Name is required</span>
+    </div>
+    <div *ngIf="firstname?.errors?.['minlength']">
+      <span>Min length should be 6</span>
+    </div>
+    <div *ngIf="firstname?.errors?.['maxlength']">
+      <span>Max length should be 10</span>
+    </div>
+  </div>
+</div>
+
+<p>{{ name | titlecase }}</p>

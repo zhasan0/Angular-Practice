@@ -1,0 +1,26 @@
+<table width="100%">
+  <thead>
+  <tr>
+    <td>Name</td>
+    <td>Price</td>
+    <td>Description</td>
+    <td align="center">File</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products">
+    <td width="25%">
+      {{product.name}}
+    </td>
+    <td width="15%">
+      {{product.price}}
+    </td>
+    <td width="35%">
+      {{ product.description}}
+    </td>
+    <td align="center" width="25%">
+      <img src="{{ chService.url }}/{{product.file_path}}" alt="" width="100">
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.demo-input {
+  border: 2px solid gray;
+}
+
+.course-section {
+  margin: 30px auto 30px auto;
+}
+
+course-card.is-first {
+  border-top: 2px solid black;
+  padding-top: 20px;
+}
+course-card.is-last {
+  border-top: 2px solid black;
+  padding-top: 20px;
+}

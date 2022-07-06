@@ -1,0 +1,23 @@
+<h1>Welcome to {{ data.title }}</h1>
+
+<input type="text" class="demo-input" [value]="data.title" (keyup)="onKeyUp(titleInput.value)" #titleInput><br><br>
+
+<button type="button" (click)="onClickEvent()">Click Me</button>
+
+<div class="demo">
+  <p>Start Date: {{ startDate | date: "dd-MMM-yyyy"}}</p>
+  <p>Price: {{ price | currency: "EUR"}}</p>
+  <p>Percentage: {{ percentage | percent}}</p>
+</div>
+
+<section class="course-section">
+  <!--  <course-card *ngFor="let course of courses;index as i;first as isFirst;last as isLast"-->
+  <!--               [class.is-first]="isFirst"-->
+  <!--               [class.is-last]="isLast" [course]="course" [courseIndex]="i+1"-->
+  <!--               (courseSelected)="onCourseSelected($event)"></course-card>-->
+  <course-card *ngFor="let course of courses;index as i;" [course]="course" [courseIndex]="i+1"
+               (courseSelected)="onCourseSelected($event)"></course-card>
+</section>
+<div style="clear:both;"></div>
+
+{{ message()}}
