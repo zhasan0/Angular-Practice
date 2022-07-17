@@ -1,0 +1,55 @@
+<h3>Add New</h3>
+<form (ngSubmit)="insertData()">
+  <div class="mb-3">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" class="form-control" [(ngModel)]="product.name">
+  </div>
+  <div class="mb-3">
+    <label for="price">Price</label>
+    <input type="text" name="price" id="price" class="form-control" [(ngModel)]="product.price">
+  </div>
+  <div class="mb-3">
+    <label for="description">Description</label>
+    <input type="text" name="des" id="description" class="form-control" [(ngModel)]="product.description">
+  </div>
+  <!--  <div class="mb-3">-->
+  <!--    <label for="file">File</label>-->
+  <!--    <input type="file" name="file" id="file" class="form-control" [(ngModel)]="product.file">-->
+  <!--  </div>-->
+  <div class="text-end">
+    <button class="btn btn-primary">Create</button>
+  </div>
+</form>
+<div class="mb-5 mt-5"></div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th width="3%">#</th>
+    <th width="15%">Name</th>
+    <th width="8%">Price</th>
+    <th width="35%">Description</th>
+    <th width="12%">Image</th>
+    <th width="12%">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products;index as i;">
+    <th scope="row">{{i + 1}}</th>
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.description}}</td>
+    <td *ngIf="product.file_path; else noImg">
+      <img [src]="getFileUrl()+'/'+product.file_path" width="100" alt="">
+    </td>
+    <ng-template #noImg>
+      <td>
+        <img src="https://via.placeholder.com/60x65" width="100" alt="">
+      </td>
+    </ng-template>
+    <th>
+      <button class="btn btn-danger btn-sm" (click)="deleteData(product.id)">Delete</button>
+      <button class="btn btn-primary btn-sm ms-1" routerLink="edit/{{product.id}}">Edit</button>
+    </th>
+  </tr>
+  </tbody>
+</table>

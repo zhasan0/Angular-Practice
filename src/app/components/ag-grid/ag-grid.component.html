@@ -1,0 +1,7 @@
+<button class="btn btn-danger btn-sm mb-1" (click)="clearSelection()">Deselect All</button>
+<ag-grid-angular style="width: 650px;height: 300px;" class="ag-theme-alpine"
+                 [rowData]="rowData$ | async" [columnDefs]="columnDefs"
+                 [defaultColDef]="defaultColDef"
+                 [rowSelection]="'multiple'"
+                 [animateRows]="true" (cellClicked)="onCellClicked($event)">
+</ag-grid-angular>

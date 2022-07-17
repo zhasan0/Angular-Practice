@@ -10,7 +10,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HomeComponent} from './home/home.component';
 import {FormComponent} from './form/form.component';
 import {HttpClientModule} from "@angular/common/http";
-import { ListComponent } from './list/list.component';
+import {ListComponent} from './list/list.component';
+import {ProductsComponent} from './components/products/products.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
+import { AgGridComponent } from './components/ag-grid/ag-grid.component';
+import {AgGridModule} from "ag-grid-angular";
+import { CustomCellComponent } from './components/ag-grid/custom-cell/custom-cell.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +24,19 @@ import { ListComponent } from './list/list.component';
     PostListComponent,
     HomeComponent,
     FormComponent,
-    ListComponent
+    ListComponent,
+    ProductsComponent,
+    NavbarComponent,
+    AgGridComponent,
+    CustomCellComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgGridModule
   ],
   providers: [],
   bootstrap: [AppComponent]

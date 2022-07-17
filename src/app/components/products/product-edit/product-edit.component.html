@@ -1,0 +1,23 @@
+<h3>Edit Product</h3>
+<form (ngSubmit)="updateData()">
+  <div class="mb-3">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" class="form-control" [(ngModel)]="product.name">
+  </div>
+  <div class="mb-3">
+    <label for="price">Price</label>
+    <input type="text" name="price" id="price" class="form-control" [(ngModel)]="product.price">
+  </div>
+  <div class="mb-3">
+    <label for="description">Description</label>
+    <input type="text" name="des" id="description" class="form-control" [(ngModel)]="product.description">
+  </div>
+  <!--  <div class="mb-3">-->
+  <!--    <label for="file">File</label>-->
+  <!--    <input type="file" name="file" id="file" class="form-control" [(ngModel)]="product.file">-->
+  <!--  </div>-->
+  <div class="text-end">
+    <button class="btn btn-primary">Update</button>
+  </div>
+</form>
+<div class="mb-5 mt-5"></div>

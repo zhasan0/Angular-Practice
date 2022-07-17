@@ -5,6 +5,8 @@ import {PostListComponent} from "./post-list/post-list.component";
 import {HomeComponent} from "./home/home.component";
 import {FormComponent} from "./form/form.component";
 import {ListComponent} from "./list/list.component";
+import {ProductsComponent} from "./components/products/products.component";
+import {AgGridComponent} from "./components/ag-grid/ag-grid.component";
 
 // declare routes
 const routes: Routes = [
@@ -22,7 +24,15 @@ const routes: Routes = [
   },
   {
     path: 'lists', component: ListComponent
-  }
+  },
+  {
+    path: 'products',
+    loadChildren:
+      () => import('./components/products/products.module').then(m => m.ProductsModule)
+  },
+  {
+    path: 'ag-grid', component: AgGridComponent
+  },
 ];
 
 @NgModule({

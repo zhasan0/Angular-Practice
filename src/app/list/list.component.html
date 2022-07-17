@@ -1,26 +1,32 @@
-<table width="100%">
-  <thead>
-  <tr>
-    <td>Name</td>
-    <td>Price</td>
-    <td>Description</td>
-    <td align="center">File</td>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let product of products">
-    <td width="25%">
-      {{product.name}}
-    </td>
-    <td width="15%">
-      {{product.price}}
-    </td>
-    <td width="35%">
-      {{ product.description}}
-    </td>
-    <td align="center" width="25%">
-      <img src="{{ chService.url }}/{{product.file_path}}" alt="" width="100">
-    </td>
-  </tr>
-  </tbody>
-</table>
+<!--<table width="100%" class="table">-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <td>Name</td>-->
+<!--    <td>Price</td>-->
+<!--    <td>Description</td>-->
+<!--    <td align="center">File</td>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--  <tr *ngFor="let product of products">-->
+<!--    <td width="25%">-->
+<!--      {{product.name}}-->
+<!--    </td>-->
+<!--    <td width="15%">-->
+<!--      {{product.price}}-->
+<!--    </td>-->
+<!--    <td width="35%">-->
+<!--      {{ product.description}}-->
+<!--    </td>-->
+<!--    <td align="center" width="25%">-->
+<!--      <img src="{{ chService.url }}/{{product.file_path}}" alt="" width="100">-->
+<!--    </td>-->
+<!--  </tr>-->
+<!--  </tbody>-->
+<!--</table>-->
+<button class="btn btn-danger mb-2 btn-sm" (click)="clearSelection()">Deselect</button>
+<ag-grid-angular style="width: 650px;height: 300px;" class="ag-theme-alpine"
+                 [rowData]="rowData$ | async" [columnDefs]="columnDefs"
+                 [defaultColDef]="defaultColDef" [animateRows]="true" [rowSelection]="'multiple'">
+
+</ag-grid-angular>

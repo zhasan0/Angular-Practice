@@ -1,22 +1,9 @@
-<div class="menu">
-  <nav>
-    <ul>
-      <li>
-        <a [routerLink]="['/']">Root</a>
-      </li>
-      <li>
-        <a [routerLink]="['/home']">Home</a>
-      </li>
-      <li>
-        <a [routerLink]="['/posts']">Posts</a>
-      </li>
-      <li>
-        <a [routerLink]="['/forms']">Forms</a>
-      </li>
-      <li>
-        <a [routerLink]="['/lists']">Lists</a>
-      </li>
-    </ul>
-  </nav>
+<app-navbar></app-navbar>
+<div class="container">
+  <hr>
+  <div class="col mt-t mb-5">
+    <div class="col-10 mx-auto">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
-<router-outlet></router-outlet>
