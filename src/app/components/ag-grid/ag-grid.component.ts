@@ -29,7 +29,8 @@ export class AgGridComponent implements OnInit {
       cellRendererParams: {
         buttonText: "Name"
       },
-      checkboxSelection: true
+      checkboxSelection: true,
+      headerCheckboxSelection: true
     },
     {
       field: 'model', cellRenderer: CustomCellComponent, cellRendererParams: {

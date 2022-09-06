@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {ICellRendererAngularComp} from "ag-grid-angular";
-import {ICellRendererParams} from "ag-grid-community";
+import { Component, OnInit } from '@angular/core';
+import { ICellRendererAngularComp } from "ag-grid-angular";
+import { ICellRendererParams } from "ag-grid-community";
 
 
 export interface customCallParams {
@@ -22,6 +22,7 @@ export class CustomCellComponent implements OnInit, ICellRendererAngularComp {
 
   value: any;
   buttonText: string = "Default";
+  params: any;
 
   constructor() {
   }
@@ -32,6 +33,7 @@ export class CustomCellComponent implements OnInit, ICellRendererAngularComp {
   agInit(params: ICellRendererParams & customCallParams): void {
     this.value = params.value;
     this.buttonText = params.buttonText ?? "Default";
+    this.params = params;
   }
 
   refresh(params: ICellRendererParams<any>): boolean {
@@ -39,7 +41,7 @@ export class CustomCellComponent implements OnInit, ICellRendererAngularComp {
   }
 
   onClick(event: any) {
-    alert("Call value is: " + this.value);
+    alert("Call value is: " + this.params.data.model);
   }
 
 }

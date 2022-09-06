@@ -16,6 +16,9 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 import { AgGridComponent } from './components/ag-grid/ag-grid.component';
 import {AgGridModule} from "ag-grid-angular";
 import { CustomCellComponent } from './components/ag-grid/custom-cell/custom-cell.component';
+import { ActionButtonComponent } from './components/action-button/action-button.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AgMaterialComponent } from './components/ag-material/ag-material.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,8 @@ import { CustomCellComponent } from './components/ag-grid/custom-cell/custom-cel
     NavbarComponent,
     AgGridComponent,
     CustomCellComponent,
+    ActionButtonComponent,
+    AgMaterialComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,8 @@ import { CustomCellComponent } from './components/ag-grid/custom-cell/custom-cel
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    AgGridModule
+    AgGridModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

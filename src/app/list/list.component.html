@@ -25,8 +25,8 @@
 <!--  </tbody>-->
 <!--</table>-->
 <button class="btn btn-danger mb-2 btn-sm" (click)="clearSelection()">Deselect</button>
-<ag-grid-angular style="width: 650px;height: 300px;" class="ag-theme-alpine"
+<ag-grid-angular style="width: 800px;height: 300px;" class="ag-theme-alpine"
                  [rowData]="rowData$ | async" [columnDefs]="columnDefs"
-                 [defaultColDef]="defaultColDef" [animateRows]="true" [rowSelection]="'multiple'">
-
+                 [defaultColDef]="defaultColDef" [animateRows]="true" [rowSelection]="'multiple'"
+                 [pagination]="true" (gridReady)="onGridReady($event)">
 </ag-grid-angular>

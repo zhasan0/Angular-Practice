@@ -14,24 +14,31 @@ const routes: Routes = [
     path: '', component: CourseCardComponent
   },
   {
-    path: 'home', component: HomeComponent
+    path: 'home', title: "Home", component: HomeComponent
   },
   {
-    path: 'posts', component: PostListComponent
+    path: 'posts', title: "Posts", component: PostListComponent
   },
   {
     path: 'forms', component: FormComponent
   },
   {
-    path: 'lists', component: ListComponent
+    path: 'lists', title: "AG Lists", component: ListComponent
   },
   {
     path: 'products',
+    title: "Products",
     loadChildren:
       () => import('./components/products/products.module').then(m => m.ProductsModule)
   },
   {
-    path: 'ag-grid', component: AgGridComponent
+    path: 'ag-grid', title: "AG Grid", component: AgGridComponent
+  },
+  {
+    path: 'ag-material',
+    title: "Angular Material",
+    loadChildren:
+    () => import('./components/ag-material/ag-material.module').then(m => m.AgMaterialModule)
   },
 ];
 

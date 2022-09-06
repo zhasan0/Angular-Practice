@@ -1,8 +1,15 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {ChannelService} from "../services/channel.service";
-import {Observable} from "rxjs";
-import {AgGridAngular} from "ag-grid-angular";
-import {ColDef} from "ag-grid-community";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChannelService } from "../services/channel.service";
+import { Observable } from "rxjs";
+import { AgGridAngular } from "ag-grid-angular";
+import {
+  CheckboxSelectionCallbackParams,
+  ColDef,
+  HeaderCheckboxSelectionCallbackParams,
+  ICellRendererParams
+} from "ag-grid-community";
+import { DataService } from "../services/data.service";
+import { ActionButtonComponent } from '../components/action-button/action-button.component';
 
 @Component({
   selector: 'app-list',
@@ -13,11 +20,15 @@ export class ListComponent implements OnInit {
 
   products: any;
   rowData$!: Observable<any[]>;
+  frameworkComponents: any;
+  grid: any;
 
   @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
 
-  constructor(public chService: ChannelService) {
-
+  constructor(private chService: ChannelService, private dataService: DataService) {
+    this.frameworkComponents = {
+      buttonRenderer: ActionButtonComponent
+    }
   }
 
   ngOnInit(): void {
@@ -26,9 +37,16 @@ export class ListComponent implements OnInit {
   }
 
   columnDefs: ColDef[] = [
-    {field: 'name', checkboxSelection: true},
-    {field: 'description', width: 250},
-    {field: 'price'},
+    {
+      field: 'name', checkboxSelection: true,
+      headerCheckboxSelection: true, headerName: "Name"
+    },
+    { field: 'description', width: 280, headerName: "Description" },
+    { field: 'price', headerName: "Price" },
+    {
+      headerName: 'Action', editable: false, checkboxSelection: false, width: 100, colId: "action",
+      cellRenderer: ActionButtonComponent,
+    },
   ];
 
   defaultColDef: ColDef = {
@@ -36,6 +54,10 @@ export class ListComponent implements OnInit {
     filter: true,
     resizable: true,
     editable: true
+  }
+
+  onGridReady(grid:any) {
+    this.grid = grid;
   }
 
   clearSelection() {
@@ -47,5 +69,16 @@ export class ListComponent implements OnInit {
       this.products = product;
     }));
   }
-
 }
+
+var checkboxSelection = function (params: CheckboxSelectionCallbackParams) {
+  // we put checkbox on the name if we are not doing grouping
+  return params.columnApi.getRowGroupColumns().length === 0;
+};
+
+var headerCheckboxSelection = function (params: HeaderCheckboxSelectionCallbackParams) {
+  // we put checkbox on the name if we are not doing grouping
+  return params.columnApi.getRowGroupColumns().length === 0;
+};
+
+

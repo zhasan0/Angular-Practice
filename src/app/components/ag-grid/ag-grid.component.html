@@ -3,5 +3,6 @@
                  [rowData]="rowData$ | async" [columnDefs]="columnDefs"
                  [defaultColDef]="defaultColDef"
                  [rowSelection]="'multiple'"
-                 [animateRows]="true" (cellClicked)="onCellClicked($event)">
+                 [animateRows]="true" (cellClicked)="onCellClicked($event)"
+                 [pagination]="true" [enableRangeSelection]="true">
 </ag-grid-angular>

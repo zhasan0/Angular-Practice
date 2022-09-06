@@ -32,7 +32,8 @@ export class ProductEditComponent implements OnInit {
 
   updateData(){
     return this.dataService.updateData(this.id, this.data).subscribe(res => {
-      alert(res);
+      let json = JSON.parse(JSON.stringify(res));
+      alert(json.msg);
     });
   }
 
